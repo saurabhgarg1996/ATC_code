@@ -67,7 +67,7 @@ def main(_):
 
 		net.load_state_dict(torch.load( FLAGS.ckpt_dir +  "/ckpt-" + str(epoch) + ".pth"))
 
-		probsv1, labelsv1 = save_probs(net, testloaders[0], device, "v1", "/tmp" , epoch)
+		probsv1, labelsv1 = save_probs(net, testloaders[0], device)
 
 		pred_idxv1 = np.argmax(probsv1, axis=-1)
 		pred_probsv1 = np.max(probsv1, axis=-1)
@@ -94,7 +94,7 @@ def main(_):
 
 
 		for i, testloader in enumerate(testloaders[0:]): 
-			probs_new, labels_new = save_probs(net, testloader, device, "v1", "/tmp" , epoch) 
+			probs_new, labels_new = save_probs(net, testloader, device) 
 
 			pred_idx_new = np.argmax(probs_new, axis=-1)
 			pred_probs_new = np.max(probs_new, axis=-1)

@@ -23,7 +23,7 @@ FLAGS = flags.FLAGS
 
 flags.DEFINE_float('lr', 0.1, 'Learning rate.')
 flags.DEFINE_float('wd', 5e-4, 'Weight Decay.')
-flags.DEFINE_float('data_dir', './data/', 'Data director.')
+flags.DEFINE_string('data_dir', './data/', 'Data director.')
 flags.DEFINE_integer('bs', 200, 'Batch Size.')
 flags.DEFINE_integer('numClasses', 10, 'Number of classes.')
 flags.DEFINE_float('momentum', 0.9, 'Momentum.')

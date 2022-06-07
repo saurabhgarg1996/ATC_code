@@ -214,7 +214,7 @@ def model_save(epoch, net, dir, freq=5):
         torch.save(net.state_dict(), dir + "/ckpt-" + str(epoch) + ".pth")
 
 
-def save_probs(net, loader, device, version, localpath, epoch ): 
+def save_probs(net, loader, device): 
 	net.eval()
 
 	probs = None
@@ -234,44 +234,4 @@ def save_probs(net, loader, device, version, localpath, epoch ):
 				labels = np.concatenate((labels,targets.cpu().numpy()), axis=0)
 
 
-	np.savez(localpath + "/" + version + "_" + str(epoch) +".npz", probs= probs, labels=labels) 
-
-def save_ensemble_probs(nets, loader, device, version, localpath, epoch, save=True): 
-	for net in nets: 
-		net.eval()
-
-	probs = None
-	labels = None
-	correct = 0
-	total = 0
-	with torch.no_grad():
-		for batch_idx, batch_data  in enumerate(loader):
-			inputs, targets = batch_data[0], batch_data[1]
-			inputs, targets = inputs.to(device), targets.to(device)
-			outputs = None 
-
-			for net in nets: 
-				if outputs is None: 
-					outputs = F.softmax(net(inputs), dim = -1)
-				else: 
-					outputs += F.softmax(net(inputs), dim = -1)
-			outputs /= len(nets)
-			_, predicted = outputs.max(1)
-
-			total += targets.size(0)
-			correct += predicted.eq(targets).sum().item()
-
-			if probs is None: 
-				probs = outputs.detach().cpu().numpy()
-				labels = targets.cpu().numpy()
-			else: 
-				probs = np.concatenate((probs,outputs.detach().cpu().numpy()), axis=0)
-				labels = np.concatenate((labels,targets.cpu().numpy()), axis=0)
-
-	if save: 
-		np.savez(localpath + "/" + version + "_" + str(epoch) +".npz", probs= probs, labels=labels) 
-
-		return 100.*correct/total
-
-	else: 
-		return probs, labels
+	return probs, labels
