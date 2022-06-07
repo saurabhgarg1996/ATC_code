@@ -34,6 +34,8 @@ for file in $1/imagenet-c/*; do
     done
 done
 
+ln -s $1/imagenet-r $2/imagenet-r 
+
 mkdir -p $2/imagenet-sketch
 
 for id in ${IDS[@]}; do
