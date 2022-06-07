@@ -1,0 +1,16 @@
+[
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "FMoW", 
+		"lr": "0.0001",
+		"wd": "0.00",
+		"optimizer": "Adam", 
+		"bs": "64",
+		"epochs": "50",
+		"logFreq": "5", 
+		"pretrained": true, 
+		"numClasses": "62",
+		"momentum": "0.0",
+		"seed": ["1234", "9999"]
+	}
+]

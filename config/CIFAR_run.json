@@ -1,0 +1,7 @@
+[
+	{
+		"net": ["DenseNet121", "ResNet18"], 
+		"data": "CIFAR", 
+		"seed": ["9999"]
+	}
+]

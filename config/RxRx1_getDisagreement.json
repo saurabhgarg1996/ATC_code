@@ -1,0 +1,50 @@
+[
+	{
+		"net": "DenseNet121", 
+		"data": "RxRx1", 
+		"remoteDir1" : "RxRx1/DenseNet121_0.0001_1e-05_0.0_Adam_90_1111" , 
+		"remoteDir2" : "RxRx1/DenseNet121_0.0001_1e-05_0.0_Adam_90_42" , 
+		"numClasses": "1139",
+		"bs": "75",
+		"seed": "1111", 
+		"startEpoch": "0",
+		"endEpoch": "90",
+		"gapEpoch": "5"
+	},
+	{
+		"net": "ResNet50", 
+		"data": "RxRx1", 
+		"remoteDir1" : "RxRx1/ResNet50_0.0001_1e-05_0.0_Adam_90_1111" , 
+		"remoteDir2" : "RxRx1/ResNet50_0.0001_1e-05_0.0_Adam_90_42" , 
+		"numClasses": "1139",
+		"bs": "75",
+		"seed": "1111", 
+		"startEpoch": "0",
+		"endEpoch": "90",
+		"gapEpoch": "5"
+	},
+	{
+		"net": "DenseNet121", 
+		"data": "RxRx1", 
+		"remoteDir1" : "RxRx1/DenseNet121_0.0001_1e-05_0.0_Adam_90_1234" , 
+		"remoteDir2" : "RxRx1/DenseNet121_0.0001_1e-05_0.0_Adam_90_9999" , 
+		"numClasses": "1139",
+		"bs": "75",
+		"seed": "1111", 
+		"startEpoch": "0",
+		"endEpoch": "90",
+		"gapEpoch": "5"
+	},
+	{
+		"net": "ResNet50", 
+		"data": "RxRx1", 
+		"remoteDir1" : "RxRx1/ResNet50_0.0001_1e-05_0.0_Adam_90_1234" , 
+		"remoteDir2" : "RxRx1/ResNet50_0.0001_1e-05_0.0_Adam_90_9999" , 
+		"numClasses": "1139",
+		"bs": "75",
+		"seed": "1111", 
+		"startEpoch": "0",
+		"endEpoch": "90",
+		"gapEpoch": "5"
+	}
+]

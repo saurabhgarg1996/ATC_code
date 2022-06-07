@@ -1,0 +1,16 @@
+[
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "ImageNet", 
+		"lr": "0.0001",
+		"wd": "0.00",
+		"optimizer": "Adam", 
+		"bs": "64",
+		"epochs": "10",
+		"logFreq": "1", 
+		"pretrained": true, 
+		"numClasses": "1000",
+		"momentum": "0.0",
+		"seed": ["1234", "9999"]
+	}
+]

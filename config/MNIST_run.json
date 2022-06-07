@@ -1,0 +1,14 @@
+[
+	{
+		"net": ["FCN"], 
+		"data": "MNIST", 
+		"seed": ["1234", "9999"],
+		"lr": "0.01",
+		"wd": "0.00001",
+		"optimizer": "SGD", 
+		"epochs": "50",
+		"logFreq": "5", 
+		"numClasses": "10",
+		"momentum": "0.9"
+	}
+]

@@ -1,0 +1,28 @@
+[
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "CivilComments", 
+		"remoteDir1" : "CivilComments/distilbert-base-uncased_1e-05_0.01_0.0_AdamW_5_1111" , 
+		"remoteDir2" : "CivilComments/distilbert-base-uncased_1e-05_0.01_0.0_AdamW_5_42" , 
+		"numClasses": 2,
+		"bs": "16",
+		"max_token_length": 300,
+		"seed": "1111", 
+		"startEpoch": "4",
+		"endEpoch": "5",
+		"gapEpoch": "1"
+	},
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "CivilComments", 
+		"remoteDir1" : "CivilComments/distilbert-base-uncased_1e-05_0.01_0.0_AdamW_5_1234" , 
+		"remoteDir2" : "CivilComments/distilbert-base-uncased_1e-05_0.01_0.0_AdamW_5_9999" , 
+		"numClasses": 2,
+		"bs": "16",
+		"max_token_length": 300,
+		"seed": "1111", 
+		"startEpoch": "4",
+		"endEpoch": "5",
+		"gapEpoch": "1"
+	}
+]

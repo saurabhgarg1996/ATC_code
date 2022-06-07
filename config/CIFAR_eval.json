@@ -1,0 +1,34 @@
+[
+	{
+		"net": ["ResNet18", "DenseNet121"], 
+		"data": "CIFAR", 
+		"seeds": ["1111"],
+		"endEpoch": "340", 
+		"startEpoch": "300", 
+		"gapEpoch": "50"
+	},
+	{
+		"net": ["ResNet18", "DenseNet121"], 
+		"data": "CIFAR", 
+		"seeds": ["1234"],
+		"endEpoch": "340", 
+		"startEpoch": "300", 
+		"gapEpoch": "50"
+	}, 
+	{
+		"net": ["ResNet18", "DenseNet121"], 
+		"data": "CIFAR", 
+		"seeds": ["9999"],
+		"endEpoch": "340", 
+		"startEpoch": "300", 
+		"gapEpoch": "50"
+	},
+	{
+		"net": ["ResNet18", "DenseNet121"], 
+		"data": "CIFAR", 
+		"seeds": ["42"],
+		"endEpoch": "340", 
+		"startEpoch": "300", 
+		"gapEpoch": "50"
+	}
+]

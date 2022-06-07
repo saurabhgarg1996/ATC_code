@@ -1,0 +1,58 @@
+[
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "entity13", 
+		"lr": "0.1",
+		"wd": "0.0001",
+		"optimizer": "SGD", 
+		"bs": "100",
+		"epochs": "300",
+		"logFreq": "30", 
+		"pretrained": false, 
+		"numClasses": "13",
+		"momentum": "0.9",
+		"seed": ["1234", "9999"]
+	},
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "entity30", 
+		"lr": "0.1",
+		"wd": "0.0001",
+		"optimizer": "SGD", 
+		"bs": "100",
+		"epochs": "300",
+		"logFreq": "30", 
+		"pretrained": false, 
+		"numClasses": "30",
+		"momentum": "0.9",
+		"seed": ["1234", "9999"]
+	},
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "living17", 
+		"lr": "0.1",
+		"wd": "0.0001",
+		"optimizer": "SGD", 
+		"bs": "100",
+		"epochs": "450",
+		"logFreq": "30", 
+		"pretrained": false, 
+		"numClasses": "17",
+		"momentum": "0.9",
+		"seed": ["1234", "9999"]
+	},
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "nonliving26", 
+		"lr": "0.1",
+		"wd": "0.0001",
+		"optimizer": "SGD", 
+		"bs": "100",
+		"epochs": "450",
+		"logFreq": "30", 
+		"pretrained": false, 
+		"numClasses": "26",
+		"momentum": "0.9",
+		"seed": ["1234", "9999"]
+	}
+]

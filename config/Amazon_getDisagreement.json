@@ -1,0 +1,26 @@
+[
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "Amazon",
+		"remoteDir1" : "Amazon/distilbert-base-uncased_1e-05_0.01_0.0_AdamW_3_1111" , 
+		"remoteDir2" : "Amazon/distilbert-base-uncased_1e-05_0.01_0.0_AdamW_3_42" , 
+		"numClasses": 5,
+		"bs": "8",
+		"seed": "1111", 
+		"startEpoch": "2",
+		"endEpoch": "3",
+		"gapEpoch": "1"
+	},
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "Amazon",
+		"remoteDir1" : "Amazon/distilbert-base-uncased_1e-05_0.01_0.0_AdamW_3_1234" , 
+		"remoteDir2" : "Amazon/distilbert-base-uncased_1e-05_0.01_0.0_AdamW_3_9999" , 
+		"numClasses": 5,
+		"bs": "8",
+		"seed": "1111", 
+		"startEpoch": "2",
+		"endEpoch": "3",
+		"gapEpoch": "1"
+	}
+]

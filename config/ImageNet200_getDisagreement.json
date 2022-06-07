@@ -1,0 +1,50 @@
+[
+	{
+		"net": "ResNet50", 
+		"data": "ImageNet-200", 
+		"remoteDir1" : "ImageNet-200/ResNet50_0.0001_0.0_0.0_Adam_50_1111" , 
+		"remoteDir2" : "ImageNet-200/ResNet50_0.0001_0.0_0.0_Adam_50_42" , 
+		"numClasses": 200,
+		"bs": "64",
+		"seed": "1111", 
+		"startEpoch": "45",
+		"endEpoch": "50",
+		"gapEpoch": "5"
+	}, 
+	{
+		"net": "DenseNet121", 
+		"data": "ImageNet-200", 
+		"remoteDir1" : "ImageNet-200/DenseNet121_0.0001_0.0_0.0_Adam_50_1111" , 
+		"remoteDir2" : "ImageNet-200/DenseNet121_0.0001_0.0_0.0_Adam_50_42" , 
+		"numClasses": 200,
+		"bs": "64",
+		"seed": "1111", 
+		"startEpoch": "45",
+		"endEpoch": "50",
+		"gapEpoch": "5"
+	},
+	{
+		"net": "ResNet50", 
+		"data": "ImageNet-200", 
+		"remoteDir1" : "ImageNet-200/ResNet50_0.0001_0.0_0.0_Adam_50_1234" , 
+		"remoteDir2" : "ImageNet-200/ResNet50_0.0001_0.0_0.0_Adam_50_9999" , 
+		"numClasses": 200,
+		"bs": "64",
+		"seed": "1111", 
+		"startEpoch": "45",
+		"endEpoch": "50",
+		"gapEpoch": "5"
+	}, 
+	{
+		"net": "DenseNet121", 
+		"data": "ImageNet-200", 
+		"remoteDir1" : "ImageNet-200/DenseNet121_0.0001_0.0_0.0_Adam_50_1234" , 
+		"remoteDir2" : "ImageNet-200/DenseNet121_0.0001_0.0_0.0_Adam_50_9999" , 
+		"numClasses": 200,
+		"bs": "64",
+		"seed": "1111", 
+		"startEpoch": "45",
+		"endEpoch": "50",
+		"gapEpoch": "5"
+	}
+]

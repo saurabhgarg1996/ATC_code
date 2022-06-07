@@ -1,0 +1,63 @@
+[
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "entity30", 
+		"lr": "0.1",
+		"wd": "0.0001",
+		"optimizer": "SGD", 
+		"bs": "100",
+		"epochs": "300",
+		"numClasses": "30",
+		"momentum": "0.9",
+		"startEpoch": "270",
+		"endEpoch": "300", 
+		"gapEpoch": "30",
+		"seeds": ["1111", "9999", "1234", "42"]
+	}, 
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "entity13", 
+		"lr": "0.1",
+		"wd": "0.0001",
+		"optimizer": "SGD", 
+		"bs": "100",
+		"epochs": "300",
+		"numClasses": "13",
+		"momentum": "0.9",
+		"startEpoch": "270",
+		"endEpoch": "300", 
+		"gapEpoch": "30",
+		"seeds": ["1111", "9999", "1234", "42"]
+	}, 
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "nonliving26", 
+		"lr": "0.1",
+		"wd": "0.0001",
+		"optimizer": "SGD", 
+		"bs": "100",
+		"epochs": "450",
+		"numClasses": "26",
+		"momentum": "0.9",
+		"startEpoch": "420",
+		"endEpoch": "450", 
+		"gapEpoch": "30",
+		"seeds": ["1111", "9999", "1234", "42"]
+	}, 
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "living17", 
+		"lr": "0.1",
+		"wd": "0.0001",
+		"optimizer": "SGD", 
+		"bs": "100",
+		"epochs": "450",
+		"numClasses": "17",
+		"momentum": "0.9",
+		"startEpoch": "420",
+		"endEpoch": "450", 
+		"gapEpoch": "30",
+		"seeds": ["1111", "9999", "1234", "42"]
+
+	}
+]

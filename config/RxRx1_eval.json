@@ -1,0 +1,62 @@
+[
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "RxRx1", 
+		"lr": "0.0001",
+		"wd": "0.00001",
+		"optimizer": "Adam", 
+		"bs": "75",
+		"epochs": "90",
+		"numClasses": "1139",
+		"momentum": "0.0",
+		"endEpoch": "90", 
+		"startEpoch": "0", 
+		"gapEpoch": "5",
+		"seeds": ["1111"]
+	}, 
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "RxRx1", 
+		"lr": "0.0001",
+		"wd": "0.00001",
+		"optimizer": "Adam", 
+		"bs": "75",
+		"epochs": "90",
+		"numClasses": "1139",
+		"momentum": "0.0",
+		"endEpoch": "90", 
+		"startEpoch": "0", 
+		"gapEpoch": "5",
+		"seeds": ["1234"]
+	}, 
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "RxRx1", 
+		"lr": "0.0001",
+		"wd": "0.00001",
+		"optimizer": "Adam", 
+		"bs": "75",
+		"epochs": "90",
+		"numClasses": "1139",
+		"momentum": "0.0",
+		"endEpoch": "90", 
+		"startEpoch": "0", 
+		"gapEpoch": "5",
+		"seeds": ["9999"]
+	},
+	{
+		"net": ["DenseNet121", "ResNet50"], 
+		"data": "RxRx1", 
+		"lr": "0.0001",
+		"wd": "0.00001",
+		"optimizer": "Adam", 
+		"bs": "75",
+		"epochs": "90",
+		"numClasses": "1139",
+		"momentum": "0.0",
+		"endEpoch": "90", 
+		"startEpoch": "0", 
+		"gapEpoch": "5",
+		"seeds": ["42"]
+	}
+]

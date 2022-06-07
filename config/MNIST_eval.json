@@ -1,0 +1,59 @@
+[
+	{
+		"net": ["FCN"], 
+		"seeds": ["1111"],
+		"data": "MNIST", 
+		"lr": "0.01",
+		"wd": "0.00001",
+		"optimizer": "SGD", 
+		"epochs": "50",
+		"numClasses": "10",
+		"momentum": "0.9",
+		"startEpoch": "45",
+		"endEpoch": "50", 
+		"gapEpoch": "5"
+	},
+	{
+		"net": ["FCN"], 
+		"seeds": ["1234"],
+		"data": "MNIST", 
+		"lr": "0.01",
+		"wd": "0.00001",
+		"optimizer": "SGD", 
+		"epochs": "50",
+		"numClasses": "10",
+		"momentum": "0.9",
+		"startEpoch": 45,
+		"endEpoch": "50", 
+		"gapEpoch": "5"
+	},
+	{
+		"net": ["FCN"], 
+		"seeds": ["9999"],
+		"data": "MNIST", 
+		"lr": "0.01",
+		"wd": "0.00001",
+		"optimizer": "SGD", 
+		"epochs": "50",
+		"numClasses": "10",
+		"momentum": "0.9",
+		"startEpoch": 45,
+		"endEpoch": "50", 
+		"gapEpoch": "5"
+	},
+	{
+		"net": ["FCN"], 
+		"seeds": ["42"],
+		"data": "MNIST", 
+		"lr": "0.01",
+		"wd": "0.00001",
+		"optimizer": "SGD", 
+		"epochs": "50",
+		"numClasses": "10",
+		"momentum": "0.9",
+		"startEpoch": 45,
+		"endEpoch": "50", 
+		"gapEpoch": "5"
+	}
+
+]

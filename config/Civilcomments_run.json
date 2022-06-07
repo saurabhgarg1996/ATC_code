@@ -1,0 +1,17 @@
+[
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "CivilComments", 
+		"lr": "0.00001",
+		"wd": "0.01",
+		"optimizer": "AdamW", 
+		"bs": "16",
+		"epochs": "5",
+		"logFreq": "1", 
+		"pretrained": true, 
+		"max_token_length": 300,
+		"numClasses": "2",
+		"momentum": "0.0",
+		"seed": ["1111", "42", "1234", "9999"]
+	}
+]

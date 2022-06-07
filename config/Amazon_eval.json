@@ -1,0 +1,62 @@
+[
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "Amazon", 
+		"lr": "0.00001",
+		"wd": "0.01",
+		"optimizer": "AdamW", 
+		"bs": "8",
+		"epochs": "3",
+		"numClasses": "5",
+		"momentum": "0.0",
+		"endEpoch": "3", 
+		"startEpoch": "2", 
+		"gapEpoch": "1",
+		"seeds": ["1111"]
+	}, 
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "Amazon", 
+		"lr": "0.00001",
+		"wd": "0.01",
+		"optimizer": "AdamW", 
+		"bs": "8",
+		"epochs": "3",
+		"numClasses": "5",
+		"momentum": "0.0",
+		"endEpoch": "3", 
+		"startEpoch": "2", 
+		"gapEpoch": "1",
+		"seeds": ["1234"]
+	}, 
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "Amazon", 
+		"lr": "0.00001",
+		"wd": "0.01",
+		"optimizer": "AdamW", 
+		"bs": "8",
+		"epochs": "3",
+		"numClasses": "5",
+		"momentum": "0.0",
+		"endEpoch": "3", 
+		"startEpoch": "2", 
+		"gapEpoch": "1",
+		"seeds": ["9999"]
+	},
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "Amazon", 
+		"lr": "0.00001",
+		"wd": "0.01",
+		"optimizer": "AdamW", 
+		"bs": "8",
+		"epochs": "3",
+		"numClasses": "5",
+		"momentum": "0.0",
+		"endEpoch": "3", 
+		"startEpoch": "2", 
+		"gapEpoch": "1",
+		"seeds": ["42"]
+	}
+]

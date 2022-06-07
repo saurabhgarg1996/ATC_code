@@ -1,0 +1,24 @@
+[
+	{
+		"net": "FCN", 
+		"data": "MNIST", 
+		"remoteDir1" : "MNIST/FCN_0.01_1e-05_0.9_SGD_50_1111" , 
+		"remoteDir2" : "MNIST/FCN_0.01_1e-05_0.9_SGD_50_42" , 
+		"numClasses": 10,
+		"seed": "1111", 
+		"startEpoch": "45",
+		"endEpoch": "50",
+		"gapEpoch": "5"
+	}, 
+	{
+		"net": "FCN", 
+		"data": "MNIST", 
+		"remoteDir1" : "MNIST/FCN_0.01_1e-05_0.9_SGD_50_9999" , 
+		"remoteDir2" : "MNIST/FCN_0.01_1e-05_0.9_SGD_50_1234" , 
+		"numClasses": 10,
+		"seed": "1111", 
+		"startEpoch": "45",
+		"endEpoch": "50",
+		"gapEpoch": "5"
+	}
+]

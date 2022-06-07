@@ -1,0 +1,62 @@
+[
+	{
+		"net": ["ResNet50", "DenseNet121"], 
+		"data": "ImageNet-200", 
+		"lr": "0.0001",
+		"wd": "0.00",
+		"optimizer": "Adam", 
+		"bs": "64",
+		"epochs": "50",
+		"numClasses": "200",
+		"momentum": "0.0",
+		"endEpoch": "50", 
+		"gapEpoch": "5",
+		"startEpoch": "45",
+		"seeds": ["1111"]
+	}, 
+	{
+		"net": ["ResNet50", "DenseNet121"], 
+		"data": "ImageNet-200", 
+		"lr": "0.0001",
+		"wd": "0.00",
+		"optimizer": "Adam", 
+		"bs": "64",
+		"epochs": "50",
+		"numClasses": "200",
+		"momentum": "0.0",
+		"endEpoch": "50", 
+		"gapEpoch": "5",
+		"startEpoch": "45",
+		"seeds": ["1234"]
+	}, 
+	{
+		"net": ["ResNet50", "DenseNet121"], 
+		"data": "ImageNet-200", 
+		"lr": "0.0001",
+		"wd": "0.00",
+		"optimizer": "Adam", 
+		"bs": "64",
+		"epochs": "50",
+		"numClasses": "200",
+		"momentum": "0.0",
+		"endEpoch": "50", 
+		"gapEpoch": "5",
+		"startEpoch": "45",
+		"seeds": ["9999"]
+	}, 
+	{
+		"net": ["ResNet50", "DenseNet121"], 
+		"data": "ImageNet-200", 
+		"lr": "0.0001",
+		"wd": "0.00",
+		"optimizer": "Adam", 
+		"bs": "64",
+		"epochs": "50",
+		"numClasses": "200",
+		"momentum": "0.0",
+		"endEpoch": "50", 
+		"gapEpoch": "5",
+		"startEpoch": "45",
+		"seeds": ["42"]
+	}
+]

@@ -1,0 +1,20 @@
+[
+	{
+		"net": "DenseNet121", 
+		"data": "CIFAR", 
+		"remoteDir1" : "CIFAR/DenseNet121_0.1_0.0005_0.9_SGD_350_1111" , 
+		"remoteDir2" : "CIFAR/DenseNet121_0.1_0.0005_0.9_SGD_350_42", 
+		"endEpoch": "340", 
+		"startEpoch": "300", 
+		"gapEpoch": "50"
+	},
+	{
+		"net": "DenseNet121", 
+		"data": "CIFAR", 
+		"remoteDir1" : "CIFAR/DenseNet121_0.1_0.0005_0.9_SGD_350_1234" , 
+		"remoteDir2" : "CIFAR/DenseNet121_0.1_0.0005_0.9_SGD_350_9999", 
+		"endEpoch": "340", 
+		"startEpoch": "300", 
+		"gapEpoch": "50"
+	}
+]

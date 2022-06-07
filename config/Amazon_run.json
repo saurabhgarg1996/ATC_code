@@ -1,0 +1,16 @@
+[
+	{
+		"net": ["distilbert-base-uncased"], 
+		"data": "Amazon", 
+		"lr": "0.00001",
+		"wd": "0.01",
+		"optimizer": "AdamW", 
+		"bs": "8",
+		"epochs": "3",
+		"logFreq": "1", 
+		"pretrained": true, 
+		"numClasses": "5",
+		"momentum": "0.0",
+		"seed": ["1111", "42", "1234", "9999"]
+	}
+]
