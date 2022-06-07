@@ -13,12 +13,12 @@ def main(_):
 
 
 	file_map = {}
-	with open(FLAGS.txt, "r" ) as file: 
+	with open(FLAGS.info, "r" ) as file: 
 		
 		json_array = json.load(file)
 		for i, line in enumerate(json_array): 
 			# print(line)
-			file_map[line[0]] = line[1]			
+			file_map[str(line[0])] = line[1]			
 
 	for r, d, f in os.walk(FLAGS.dir):
 		dir_name = r.split("/")[-1]
