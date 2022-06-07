@@ -79,7 +79,7 @@ echo "Imagenet R downloaded"
 echo "Downloading Imagenet Sketch..."
 gdown https://drive.google.com/uc?id=1Mj0i5HBthqH1p_yeXzsg22gZduvgoNeA
 unzip ImageNet-Sketch.zip -d $1/
-mv $1/ImageNet-Sketch/ $1/imagenet-sketch/
+mv $1/sketch/ $1/imagenet-sketch/
 rm -rf ImageNet-Sketch.zip
 
 echo "Imagenet Sketch downloaded"
