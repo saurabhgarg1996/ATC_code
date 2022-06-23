@@ -13,16 +13,6 @@ This repository is the official implementation of [Leveraging Unlabeled Data to 
 }
 ```
 
-## Requirements
-
-The code is written in Python and uses [PyTorch](https://pytorch.org/). To install requirements, setup a conda enviornment using the following command:
-
-```setup
-conda create -n ATC python=3.8 pip
-conda activate ATC
-pip install -r requirements.txt
-```
-
 ## Quick Experiments 
 
 To get accuracy with ATC, the following code can be simply used:
@@ -48,6 +38,17 @@ print(f"ATC predicted accuracy {ATC_accuracy}")
 ```
 
 We have a notebook with illustrations of the ATC algorithm on CIFAR-10 dataset with ResNet18 model in `notebooks/ATC_example.ipynb`. 
+
+## Requirements
+
+The code is written in Python and uses [PyTorch](https://pytorch.org/). To install requirements, setup a conda enviornment using the following command:
+
+```setup
+conda create -n ATC python=3.8 pip
+conda activate ATC
+pip install -r requirements.txt
+```
+
 
 
 ## Experimental Details
