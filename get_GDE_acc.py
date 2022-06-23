@@ -14,9 +14,9 @@ import time
 import os 
 
 from datasets import *
-from helper import *
-from getData import *
-from predictAcc_helper import *
+from model_helper import *
+from data_helper import *
+from predict_acc_helper import *
 
 FLAGS = flags.FLAGS
 

@@ -1,8 +1,4 @@
 import numpy as np
-import random 
-from absl import app, flags
-import time 
-import os 
 
 
 def inverse_softmax(preds):
@@ -16,90 +12,6 @@ def idx2onehot(a, k):
 	b[np.arange(a.size),a] = 1
 	
 	return b
-
-def find_threshold(probs, labels):
-    sorted_idx = np.argsort(probs)
-    
-    sorted_probs = probs[sorted_idx]
-    sorted_labels = labels[sorted_idx]
-    
-    fp = np.sum(labels==0)
-#     print(fp)
-    fn = 0.0
-    
-    min_fp_fn = fp + fn
-    thres = 0.0
-    for i in range(len(labels)): 
-        if sorted_labels[i] == 0: 
-            fp -= 1
-        else: 
-            fn += 1
-        
-#         print(fp, fn)
-        if (fp + fn) < min_fp_fn: 
-            min_fp_fn = fp + fn
-            thres = sorted_probs[i]
-            
-    return min_fp_fn, thres
-
-def find_threshold_balance(probs, labels): 
-    sorted_idx = np.argsort(probs)
-    
-    sorted_probs = probs[sorted_idx]
-    sorted_labels = labels[sorted_idx]
-    
-    fp = np.sum(labels==0)
-#     print(fp)
-    fn = 0.0
-    
-    min_fp_fn = np.abs(fp - fn)
-    thres = 0.0
-    min_fp = fp
-    min_fn = fn
-    for i in range(len(labels)): 
-        if sorted_labels[i] == 0: 
-            fp -= 1
-        else: 
-            fn += 1
-        
-#         print(fp, fn)
-        if np.abs(fp - fn) < min_fp_fn: 
-            min_fp = fp
-            min_fn = fn
-            min_fp_fn = np.abs(fp - fn)
-            thres = sorted_probs[i]
-    
-    return min_fp_fn, thres
-
-def find_threshold_normalize(probs, labels):
-    sorted_idx = np.argsort(probs)
-    
-    sorted_probs = probs[sorted_idx]
-    sorted_labels = labels[sorted_idx]
-    
-    num_corr = np.sum(labels==0)
-    num_incor = np.sum(labels==1)
-    fp = np.sum(labels==0)
-#     print(fp)
-    fn = 0.0
-    
-    min_fp_fn = fp* 1.0 /num_corr + fn*1.0 / num_incor
-    thres = 0.0
-    for i in range(len(labels)): 
-        if sorted_labels[i] == 0: 
-            fp -= 1
-        else: 
-            fn += 1
-        
-#         print(fp, fn)
-        if (fp* 1.0 /num_corr + fn*1.0 / num_incor) < min_fp_fn: 
-            min_fp_fn = fp* 1.0 /num_corr + fn*1.0 / num_incor
-            thres = sorted_probs[i]
-            
-    return min_fp_fn, thres
-
-def get_acc(thres, probs): 
-    return np.mean(probs>=thres)*100.0
 
 def num_corr(idx, probs, thres , true_idx): 
 

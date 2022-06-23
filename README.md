@@ -25,8 +25,36 @@ pip install -r requirements.txt
 
 ## Quick Experiments 
 
+To get accuracy with ATC, the following code can be simply used:
 
-To get accuracy with ATC run the code with the following command:
+```python
+from ATC_helper import *
+
+## TODO: Load ID validation data probs and labels
+# val_probs, val_labels =  
+
+## TODO: Load OOD test data probs
+# test_probs = 
+
+## score function, e.g., negative entropy or argmax confidence 
+val_scores = get_entropy(val_probs)
+test_scores = get_entropy(test_probs)
+
+ATC_thres = find_ATC_threshold(val_scores, val_labels)
+ATC_accuracy = get_ATC_acc(ATC_thres, test_scores)
+
+print(f"ATC predicted accuracy {ATC_accuracy}")
+
+```
+
+We have a notebook with illustrations of the ATC algorithm on CIFAR-10 dataset with ResNet18 model in `notebooks/ATC_example.ipynb`. 
+
+
+## Experimental Details
+
+
+To get accuracy with ATC and other baselines run the code with the following command:
+
 ```python
 python getATC_Acc.py --net="ResNet50" --data="FMoW" --bs=64  --numClasses=62  --seed="1111" --startEpoch=45 --endEpoch=50 --gapEpoch=5 --ckpt_dir="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111/"
 ```
@@ -35,17 +63,17 @@ Here we assume that models are already stored in `models_checkpoint/FMoW/DenseNe
 We also implement Generalized Disagrement Equality proposed in this [paper](https://openreview.net/forum?id=WvOGCEAQhxl). For GDE, we need multiple models and use the following command:
 
 ```python
-python getGDE_Acc.py --net="ResNet50" --data="FMoW" --bs=64 --ckpt_dir1="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111/" --ckpt_dir2="FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_42" --numClasses=62 --seed=1111 --startEpoch=45 --endEpoch=50 --gapEpoch=5
+python getGDE_Acc.py --net="ResNet50" --data="FMoW" --bs=64 --ckpt_dir1="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111/" --ckpt_dir2="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_42" --numClasses=62 --seed=1111 --startEpoch=45 --endEpoch=50 --gapEpoch=5
 ```
 
-Here, we assume that models are already stored in `models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111` and 'models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_42` directories.
+Here, we assume that models are already stored in `models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111` and `models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_42` directories.
 
 
 ## Dataset Setup
 
 We provide code to setup datasets used in our evaluation of the paper. Our code depends on [torchvision](https://pytorch.org/vision/stable/datasets.html) datasets, [WILDS](https://github.com/p-lambda/wilds) and [BREEDs](https://github.com/MadryLab/BREEDS-Benchmarks). 
 
-First create a dataset directory say `data/` with `mkdir data`. Follow the steps below to setup the datasets: 
+First create a dataset directory say `./data/` with `mkdir data`. Follow the steps below to setup the datasets: 
 
 
 1. BREEDs: For different BREEDs datasets, i.e., `living17, entity13, nonliving26, entity30`, use the following command to setup Imagenet hierarchicy and then follow step for Imagenet setup below:
@@ -89,7 +117,7 @@ We also provide code to train models for datasets evaluated in our paper. To tra
 python train.py --net="ResNet50" --data="FMoW" --data_dir="./data" --lr=0.0001 --wd=0.0 --optimizer="Adam" --bs=64 --epochs=50 --logFreq=5 --numClasses=62 --momentum=0.0 --seed=1111 --pretrained
 ```
 
-Vary `seed` to get different models. We can use different hyperparameters present in `config` to obtain results with different datasets and architectures. 
+Vary `seed` to get different models. Use hyperparameters present in `config` folder to obtain results with different datasets and architectures. 
 
 ## License
 This repository is licensed under the terms of the [Apache-2.0 License](LICENSE).

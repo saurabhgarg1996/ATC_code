@@ -1,8 +1,4 @@
 import torch 
-import torch.nn as nn
-import torch.optim as optim
-import torch.nn.functional as F
-import torch.backends.cudnn as cudnn
 import torchvision.transforms.functional as TF
 
 import torchvision
@@ -21,40 +17,40 @@ from transformers import BertTokenizerFast, DistilBertTokenizerFast
 from wilds.datasets.wilds_dataset import WILDSSubset
 
 
-def get_data(flags, train=True, eval = True): 
+def get_data(data_dir, data, bs, net, train=True, eval = True, max_token_length=None): 
 
-	if flags.data == "CIFAR": 
-		return get_cifar(flags.bs, flags.data_dir)
+	if data == "CIFAR": 
+		return get_cifar(bs, data_dir)
 	
-	if flags.data == "CIFAR-100": 
-		return get_cifar100(flags.bs, flags.data_dir)
+	if data == "CIFAR-100": 
+		return get_cifar100(bs, data_dir)
 	
-	if flags.data == "MNIST": 
-		return get_mnist(flags.bs, flags.data_dir)
+	if data == "MNIST": 
+		return get_mnist(bs, data_dir)
 	
-	elif flags.data == "Camelyon17": 
-		return get_camelyon17(flags.bs, flags.data_dir)
+	elif data == "Camelyon17": 
+		return get_camelyon17(bs, data_dir)
 
-	elif flags.data == "FMoW": 
-		return get_fmow(flags.bs, flags.data_dir)
+	elif data == "FMoW": 
+		return get_fmow(bs, data_dir)
 	
-	elif flags.data == "RxRx1": 
-		return get_rxrx1(flags.bs, flags.data_dir)
+	elif data == "RxRx1": 
+		return get_rxrx1(bs, data_dir)
 
-	elif flags.data == "Amazon": 
-		return get_amazon(flags.bs, flags.data_dir, flags.net, flags.max_token_length)
+	elif data == "Amazon": 
+		return get_amazon(bs, data_dir, net, max_token_length)
 
-	elif flags.data == "CivilComments": 
-		return get_civilcomments(flags.bs, flags.data_dir , flags.net, flags.max_token_length)
+	elif data == "CivilComments": 
+		return get_civilcomments(bs, data_dir , net, max_token_length)
 
-	elif flags.data == "ImageNet": 
-		return get_imagenet(flags.bs, flags.data_dir, train, eval)
+	elif data == "ImageNet": 
+		return get_imagenet(bs, data_dir, train, eval)
 
-	elif flags.data == "ImageNet-200": 
-		return get_imagenet200(flags.bs, flags.data_dir, train, eval)
+	elif data == "ImageNet-200": 
+		return get_imagenet200(bs, data_dir, train, eval)
 
-	elif flags.data == "living17" or flags.data == "entity13" or flags.data == "entity30" or flags.data == "nonliving26":
-		return get_imagenet_breeds(flags.bs, flags.data_dir, flags.data) 
+	elif data == "living17" or data == "entity13" or data == "entity30" or data == "nonliving26":
+		return get_imagenet_breeds(bs, data_dir, data) 
 
 
 def get_mnist(batch_size, data_dir): 

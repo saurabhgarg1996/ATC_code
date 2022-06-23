@@ -4,20 +4,16 @@ import torch.optim as optim
 import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
 
-import torchvision
-import torchvision.transforms as transforms
 from transformers import AdamW
 
 
 import numpy as np
 import random 
 from absl import app, flags
-import time 
 import os 
 
-# from datasets import *
-from helper import *
-from getData import *
+from model_helper import *
+from data_helper import *
 
 FLAGS = flags.FLAGS
 
@@ -60,11 +56,11 @@ def main(_):
 	# Get data from gloud to server in data folder 
 
 	print('==> Preparing data..')
-	trainset, trainloader, testsets, testloaders = get_data(FLAGS, eval = FLAGS.eval)
-
+	trainset, trainloader, testsets, testloaders = get_data(FLAGS.data_dir, FLAGS.data, FLAGS.bs, FLAGS.net, eval = FLAGS.eval, max_token_length=FLAGS.max_token_length)
+	
 	## Model
 	print('==> Building model..')
-	net = get_net(FLAGS, num_classes=FLAGS.numClasses)
+	net = get_net(net=FLAGS.net, data=FLAGS.data, num_classes=FLAGS.numClasses, pretrained=FLAGS.pretrained)
 	net = net.to(device)
 
 	if device == 'cuda':

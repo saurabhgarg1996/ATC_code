@@ -10,16 +10,16 @@ from models import *
 import random
 import numpy as np
 
-def get_net(FLAGS, num_classes=10): 
+def get_net(net, data, num_classes=10, pretrained=False): 
 	change=True
-	if FLAGS.net == "ResNet18": 
+	if net == "ResNet18": 
 		net = ResNet18(num_classes=num_classes)
 		change=False
-	elif FLAGS.net == "LeNet": 
+	elif net == "LeNet": 
 		net = LeNet()
-	elif FLAGS.net == "ConvNet": 
+	elif net == "ConvNet": 
 		net = ConvNet()
-	elif FLAGS.net == "FCN" and FLAGS.data=="MNIST": 
+	elif net == "FCN" and data=="MNIST": 
 		net = nn.Sequential(nn.Flatten(),
 				nn.Linear(28*28, 5000, bias=True),
 				nn.ReLU(),
@@ -29,10 +29,10 @@ def get_net(FLAGS, num_classes=10):
 				nn.ReLU(),
 				nn.Linear(50, num_classes, bias=True)
 			)
-	elif FLAGS.net == "DenseNet121" and FLAGS.data.startswith("CIFAR"): 
+	elif net == "DenseNet121" and data.startswith("CIFAR"): 
 		net = DenseNet121(num_classes = num_classes)
 		change=False
-	elif FLAGS.net == "FCN": 
+	elif net == "FCN": 
 		net = nn.Sequential(nn.Flatten(),
 				nn.Linear(32*32*3, 5000, bias=True),
 				nn.ReLU(),
@@ -42,27 +42,27 @@ def get_net(FLAGS, num_classes=10):
 				nn.ReLU(),
 				nn.Linear(50, num_classes, bias=True)
 			)
-	elif FLAGS.net == "AllConv": 
+	elif net == "AllConv": 
 		net = AllConv(num_classes= num_classes)
 
-	elif (FLAGS.net =="DenseNet121") or (FLAGS.net == "DenseNet" and FLAGS.data.startswith("CIFAR")) : 
-		net = torchvision.models.densenet121(pretrained=FLAGS.pretrained)
+	elif (net =="DenseNet121") or (net == "DenseNet" and data.startswith("CIFAR")) : 
+		net = torchvision.models.densenet121(pretrained=pretrained)
 		last_layer_name = 'classifier'
 		# change = False
-	elif FLAGS.net =="ResNet50": 
-		net = torchvision.models.resnet50(pretrained=FLAGS.pretrained)
+	elif net =="ResNet50": 
+		net = torchvision.models.resnet50(pretrained=pretrained)
 		last_layer_name = 'fc'
 		# change = False
 
-	elif FLAGS.net == "dummy": 
+	elif net == "dummy": 
 		net = nn.Sequential(nn.Flatten(),
 				nn.Linear(96*96*3, num_classes, bias=True)
 			)
 
-	elif FLAGS.net == "distilbert-base-uncased": 
-		net = initialize_bert_based_model(FLAGS.net, num_classes)
+	elif net == "distilbert-base-uncased": 
+		net = initialize_bert_based_model(net, num_classes)
 	
-	if FLAGS.net in ('ResNet50', 'DenseNet', 'DenseNet121') and change:
+	if net in ('ResNet50', 'DenseNet', 'DenseNet121') and change:
 		d_features = getattr(net, last_layer_name).in_features
 		last_layer = nn.Linear(d_features, num_classes)
 		net.d_out = num_classes

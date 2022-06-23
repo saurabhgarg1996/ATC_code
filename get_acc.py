@@ -3,9 +3,6 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
-from abstention.calibration import  VectorScaling,  TempScaling
-import torchvision
-import torchvision.transforms as transforms
 
 import numpy as np
 import random 
@@ -13,9 +10,10 @@ from absl import app, flags
 import time 
 import os 
 
-from helper import *
-from getData import *
-from predictAcc_helper import *
+from model_helper import *
+from data_helper import *
+from ATC_helper import *
+from predict_acc_helper import *
 from calibration import *
 
 FLAGS = flags.FLAGS
@@ -50,11 +48,11 @@ def main(_):
 
 
 	print('==> Preparing data..')
-	_, _, testsets, testloaders = get_data(FLAGS, train=False)
+	_, _, _ , testloaders = get_data(FLAGS.data_dir, FLAGS.data, FLAGS.bs, FLAGS.net, train=False, max_token_length=FLAGS.max_token_length)
 
 	## Model
 	print('==> Building model..')
-	net = get_net(FLAGS, num_classes=FLAGS.numClasses)
+	net = get_net(net=FLAGS.net, data=FLAGS.data, num_classes=FLAGS.numClasses, pretrained=FLAGS.pretrained)
 	net = net.to(device)
 
 	if device == 'cuda':
@@ -88,9 +86,9 @@ def main(_):
 		calib_entropy = get_entropy(calib_probsv1)
 
 		# _, entropy_thres_balance = find_threshold_balance(entropy, pred_idxv1 == labelsv1 )
-		_, calib_entropy_thres_balance = find_threshold_balance(calib_entropy, calib_pred_idxv1 == labelsv1 )
+		_, calib_entropy_thres_balance = find_ATC_threshold(calib_entropy, calib_pred_idxv1 == labelsv1 )
 		# _, thres_balance = find_threshold_balance(pred_probsv1, pred_idxv1 == labelsv1 )
-		_, calib_thres_balance = find_threshold_balance(calib_pred_probsv1, calib_pred_idxv1 == labelsv1 )
+		_, calib_thres_balance = find_ATC_threshold(calib_pred_probsv1, calib_pred_idxv1 == labelsv1 )
 
 
 		for i, testloader in enumerate(testloaders[0:]): 
@@ -109,13 +107,13 @@ def main(_):
 			# entropy_pred_balance = get_acc(entropy_thres_balance, entropy_new)
 			# entropy_conf_balance = num_corr(pred_idx_new, entropy_new, entropy_thres_balance, labels_new)
 		
-			calib_entropy_pred_balance = get_acc(calib_entropy_thres_balance, calib_entropy_new)
+			calib_entropy_pred_balance = get_ATC_acc(calib_entropy_thres_balance, calib_entropy_new)
 			# calib_entropy_conf_balance = num_corr(calib_pred_idx_new, calib_entropy_new, calib_entropy_thres_balance, labels_new)
 
 			# pred_balance = get_acc(thres_balance, pred_probs_new)
 			# conf_balance = num_corr(pred_idx_new, pred_probs_new, thres_balance, labels_new)
 
-			calib_pred_balance = get_acc(calib_thres_balance, calib_pred_probs_new)
+			calib_pred_balance = get_ATC_acc(calib_thres_balance, calib_pred_probs_new)
 			# calib_conf_balance = num_corr(calib_pred_idx_new, calib_pred_probs_new, calib_thres_balance, labels_new)
 
 			test_acc =  np.mean(pred_idx_new == labels_new)*100.0
