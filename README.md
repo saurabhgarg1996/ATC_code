@@ -57,14 +57,14 @@ pip install -r requirements.txt
 To get accuracy with ATC and other baselines run the code with the following command:
 
 ```python
-python getATC_Acc.py --net="ResNet50" --data="FMoW" --bs=64  --numClasses=62  --seed="1111" --startEpoch=45 --endEpoch=50 --gapEpoch=5 --ckpt_dir="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111/"
+python get_acc.py --net="ResNet50" --data="FMoW" --bs=64  --numClasses=62  --seed="1111" --startEpoch=45 --endEpoch=50 --gapEpoch=5 --ckpt_dir="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111/"
 ```
 Here we assume that models are already stored in `models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111` directory.
 
 We also implement Generalized Disagrement Equality proposed in this [paper](https://openreview.net/forum?id=WvOGCEAQhxl). For GDE, we need multiple models and use the following command:
 
 ```python
-python getGDE_Acc.py --net="ResNet50" --data="FMoW" --bs=64 --ckpt_dir1="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111/" --ckpt_dir2="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_42" --numClasses=62 --seed=1111 --startEpoch=45 --endEpoch=50 --gapEpoch=5
+python get_GDE_Acc.py --net="ResNet50" --data="FMoW" --bs=64 --ckpt_dir1="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111/" --ckpt_dir2="models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_42" --numClasses=62 --seed=1111 --startEpoch=45 --endEpoch=50 --gapEpoch=5
 ```
 
 Here, we assume that models are already stored in `models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_1111` and `models_checkpoint/FMoW/DenseNet121_0.0001_0.0_0.0_Adam_50_42` directories.

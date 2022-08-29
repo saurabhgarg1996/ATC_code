@@ -154,14 +154,14 @@ def get_cifar(batch_size, data_dir):
 	testloaders.append(testloaderv1)
 	testloaders.append(testloaderv2)
 
-	for data in cifar_c:
-		for severity in severities: 
-			testset = CIFAR10_C(root=f"{data_dir}/CIFAR-10-C/", data_type=data, severity=severity, transform=transform_test)
-			testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=True,\
-				 num_workers=2)
+	# for data in cifar_c:
+	# 	for severity in severities: 
+	# 		testset = CIFAR10_C(root=f"{data_dir}/CIFAR-10-C/", data_type=data, severity=severity, transform=transform_test)
+	# 		testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=True,\
+	# 			 num_workers=2)
 
-			testsets.append(testset)
-			testloaders.append(testloader)
+	# 		testsets.append(testset)
+	# 		testloaders.append(testloader)
 
 	return trainset, trainloader, testsets, testloaders
 
