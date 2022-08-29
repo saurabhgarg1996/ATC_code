@@ -37,7 +37,7 @@ print(f"ATC predicted accuracy {ATC_accuracy}")
 
 ```
 
-We have a notebook with illustrations of the ATC algorithm on CIFAR-10 dataset with ResNet18 model in `notebooks/ATC_example.ipynb`. 
+We have a notebook with illustrations of the ATC algorithm on CIFAR-10 dataset with ResNet18 model in `notebooks/ATC_example.ipynb`. We also have the full example reproducible with `example.sh` script. 
 
 ## Requirements
 
