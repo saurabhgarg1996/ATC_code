@@ -30,7 +30,7 @@ from ATC_helper import *
 val_scores = get_entropy(val_probs)
 test_scores = get_entropy(test_probs)
 
-ATC_thres = find_ATC_threshold(val_scores, val_labels)
+_, ATC_thres = find_ATC_threshold(val_scores, val_labels)
 ATC_accuracy = get_ATC_acc(ATC_thres, test_scores)
 
 print(f"ATC predicted accuracy {ATC_accuracy}")
