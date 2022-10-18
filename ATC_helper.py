@@ -3,7 +3,9 @@ import numpy as np
 def get_entropy(probs): 
 	return np.sum( np.multiply(probs, np.log(probs + 1e-20))  , axis=1)
 
-
+def get_max_conf(probs):
+	return np.max(probs, axis=-1)
+	
 def find_ATC_threshold(scores, labels): 
     sorted_idx = np.argsort(scores)
     
