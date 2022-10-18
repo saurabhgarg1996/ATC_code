@@ -28,9 +28,11 @@ from ATC_helper import *
 
 ## score function, e.g., negative entropy or argmax confidence 
 val_scores = get_entropy(val_probs)
+val_preds = np.max(val_probs, axis=-1)
+
 test_scores = get_entropy(test_probs)
 
-_, ATC_thres = find_ATC_threshold(val_scores, val_labels)
+_, ATC_thres = find_ATC_threshold(val_scores, val_labels == val_preds)
 ATC_accuracy = get_ATC_acc(ATC_thres, test_scores)
 
 print(f"ATC predicted accuracy {ATC_accuracy}")
