@@ -13,6 +13,8 @@ This repository is the official implementation of [Leveraging Unlabeled Data to 
 }
 ```
 
+In this repository, we provide implementation for various accuracy estimation hueristics along with our proposed method [ATC](https://arxiv.org/abs/2201.04234). Alongside, we also provide code to run and reproduce our testbed.   
+
 ## Quick Experiments 
 
 To get accuracy with ATC, the following code can be simply used:
