@@ -30,7 +30,7 @@ from ATC_helper import *
 
 ## score function, e.g., negative entropy or argmax confidence 
 val_scores = get_entropy(val_probs)
-val_preds = np.max(val_probs, axis=-1)
+val_preds = np.argmax(val_probs, axis=-1)
 
 test_scores = get_entropy(test_probs)
 
